@@ -7,20 +7,20 @@ class Main {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
         while (true) {
-            System.out.println("Добро пожаловать в список покупок. Пожалуйста, выберите интересующее вас действие. " +
-                    "Для выхода наберите end.");
-            System.out.println("1. Добавить" + "\n" + "2. Показать" + "\n" + "3. Удалить" + "\n" + "4. Найти");
+            System.out.println("Р”РѕР±СЂРѕ РїРѕР¶Р°Р»РѕРІР°С‚СЊ РІ СЃРїРёСЃРѕРє РїРѕРєСѓРїРѕРє. РџРѕР¶Р°Р»СѓР№СЃС‚Р°, РІС‹Р±РµСЂРёС‚Рµ РёРЅС‚РµСЂРµСЃСѓСЋС‰РµРµ РІР°СЃ РґРµР№СЃС‚РІРёРµ. " +
+                    "Р”Р»СЏ РІС‹С…РѕРґР° РЅР°Р±РµСЂРёС‚Рµ end.");
+            System.out.println("1. Р”РѕР±Р°РІРёС‚СЊ" + "\n" + "2. РџРѕРєР°Р·Р°С‚СЊ" + "\n" + "3. РЈРґР°Р»РёС‚СЊ" + "\n" + "4. РќР°Р№С‚Рё");
             String input = scanner.nextLine();
             try {
                 if ("end".equals(input)) {
-                    System.out.println("Программа завершена!");
+                    System.out.println("РџСЂРѕРіСЂР°РјРјР° Р·Р°РІРµСЂС€РµРЅР°!");
                     scanner.close();
                     break;
                 }
                 int operation = Integer.parseInt(input);
                 switch (operation) {
                     case 1:
-                        System.out.println("Введите название продукта:");
+                        System.out.println("Р’РІРµРґРёС‚Рµ РЅР°Р·РІР°РЅРёРµ РїСЂРѕРґСѓРєС‚Р°:");
                         input = scanner.nextLine();
                         productAdd(input);
                         break;
@@ -28,20 +28,20 @@ class Main {
                         productShow();
                         break;
                     case 3:
-                        System.out.println("Список продкутов:");
+                        System.out.println("РЎРїРёСЃРѕРє РїСЂРѕРґРєСѓС‚РѕРІ:");
                         productShow();
-                        System.out.println("Какую хотите удалить? Введите номер или название");
+                        System.out.println("РљР°РєСѓСЋ С…РѕС‚РёС‚Рµ СѓРґР°Р»РёС‚СЊ? Р’РІРµРґРёС‚Рµ РЅРѕРјРµСЂ РёР»Рё РЅР°Р·РІР°РЅРёРµ");
                         input = scanner.nextLine();
                         productDelete(input);
                         break;
                     case 4:
-                        System.out.println("Введите текст для поиска:");
+                        System.out.println("Р’РІРµРґРёС‚Рµ С‚РµРєСЃС‚ РґР»СЏ РїРѕРёСЃРєР°:");
                         input = scanner.nextLine();
                         productFind(input);
                         break;
                 }
             } catch (IndexOutOfBoundsException | NumberFormatException e) {
-                System.out.println("Вы ввели неправильное число. Пожалуйста сделайте выбор снова.");
+                System.out.println("Р’С‹ РІРІРµР»Рё РЅРµРїСЂР°РІРёР»СЊРЅРѕРµ С‡РёСЃР»Рѕ. РџРѕР¶Р°Р»СѓР№СЃС‚Р° СЃРґРµР»Р°Р№С‚Рµ РІС‹Р±РѕСЂ СЃРЅРѕРІР°.");
                 continue;
             }
         }
@@ -50,11 +50,11 @@ class Main {
 
     public static void productAdd(String input) {
         productList.add(input);
-        System.out.println("Итого в списке покупок: " + productList.size());
+        System.out.println("РС‚РѕРіРѕ РІ СЃРїРёСЃРєРµ РїРѕРєСѓРїРѕРє: " + productList.size());
     }
 
     public static void productShow() {
-        System.out.println("Список продуктов:");
+        System.out.println("РЎРїРёСЃРѕРє РїСЂРѕРґСѓРєС‚РѕРІ:");
         for (int i = 0; i < productList.size(); i++) {
             System.out.println((i + 1) + ". " + productList.get(i));
         }
@@ -70,7 +70,7 @@ class Main {
     }
 
     public static void productFind(String input) {
-        System.out.println("Найдено:");
+        System.out.println("РќР°Р№РґРµРЅРѕ:");
         input = input.toLowerCase();
         int y = 0;
         for (int i = 0; i < productList.size(); i++) {
@@ -81,7 +81,7 @@ class Main {
             }
         }
         if (y == 0) {
-            System.out.println("По введенному ключевому слову в списке ничего нет.");
+            System.out.println("РџРѕ РІРІРµРґРµРЅРЅРѕРјСѓ РєР»СЋС‡РµРІРѕРјСѓ СЃР»РѕРІСѓ РІ СЃРїРёСЃРєРµ РЅРёС‡РµРіРѕ РЅРµС‚.");
         }
     }
 }
